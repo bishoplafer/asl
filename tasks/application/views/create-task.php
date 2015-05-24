@@ -10,7 +10,7 @@
 	<a class="btn btn-primary btn-block" data-toggle="collapse" href="#newTaskForm" aria-expanded="false" aria-controls="newTaskForm"><h4>Create a New Task</h4></a>
 	<br />
 	<div id="newTaskForm" class="collapse">
-		<div class="panel">
+		<div class="panel" id="task">
 			<form class="form-horizontal" action="<?php echo base_url();?>index.php/Site/new_task" method="POST">
 				<div class="panel-heading">
 					<legend>Create a New Task</legend>
