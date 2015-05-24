@@ -106,6 +106,7 @@
 								<th>Task Name</th>
 								<th>Task Description</th>
 								<th>Date Completed</th>
+								<th>Completed By</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -117,15 +118,18 @@
 								foreach($query->result() as $row)
 								{ 
 							?>
-							<td><?php echo $row->task_name; ?></td>
-							<td><?php echo $row->task_desc; ?></td>
-							<td><?php echo $row->task_comp; ?></td>
+							<tr>
+								<td><?php echo $row->task_name; ?></td>
+								<td><?php echo $row->task_desc; ?></td>
+								<td><?php echo $row->task_comp; ?></td>
+								<td></td>
+							</tr>
+							<?php 
+								}
+							?>
 						</tbody>
 					</table>
 				</div>
-				<?php 
-				}
-				?>
 			</div> <!-- end .tab-pane --> 
 		</div> <!-- end .tab-content -->
 	</div> <!-- end .tabpanel -->
