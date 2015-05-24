@@ -10,15 +10,6 @@ class Site extends CI_Controller {
         $this->is_logged_in();
     }
 
-	public function members_area()
-	{
-		$user = $this->session->userdata('username');
-		$data['user'] = $user;
-		$data['main_content'] = 'members_area';
-		$this->load->view('includes/template', $data);
-		
-	}
-
 	public function is_logged_in()
 	{
 		$is_logged_in = $this->session->userdata('is_logged_in');
@@ -27,6 +18,43 @@ class Site extends CI_Controller {
 		{
 			redirect('Login/');
 		}
+	}
+
+	public function members_area()
+	{
+		$user = $this->session->userdata('username');
+		$userType = $this->session->userdata('userType');
+		$data['user'] = $user;
+		$data['userType'] = $userType;
+
+		if ($userType == 1){
+			$data['main_content'] = 'create-task';
+			$this->load->view('includes/template', $data);
+		}
+		else{
+			$data['main_content'] = 'task-list';
+			$this->load->view('includes/template', $data);
+		}
+	}
+
+	public function new_task()
+	{
+		$this->load->model('Taskmodel');
+		$query = $this->Taskmodel->create_task();
+
+	}
+
+	public function edit_task()
+	{
+		$data['main_content'] = 'edit-task';
+		$this->load->view('includes/template', $data);
+	}
+
+	public function change_task()
+	{
+		$this->load->model('Taskmodel');
+		$taskId = $this->uri->segment(3);
+		$query = $this->Taskmodel->update_task($taskId);
 	}
 
 }

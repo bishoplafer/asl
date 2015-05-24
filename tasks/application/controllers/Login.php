@@ -22,8 +22,12 @@ class Login extends CI_Controller {
 
 		if($query) // if the user's credentials validated...
 		{
+			$userType = $this->db->query('SELECT * FROM users WHERE username ="'.$this->input->post("username").'";');
+			$type = $userType->row_array();
 			$data = array(
 				'username' => $this->input->post('username'),
+				'userType' => $type['type_id'],
+				'userId' => $type['id'],
 				'is_logged_in' => true
 				);
 

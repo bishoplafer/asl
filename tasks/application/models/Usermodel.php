@@ -23,5 +23,4 @@ class Usermodel extends CI_Model {
 			return false;
 		}
 	}
-
 }

@@ -2,11 +2,16 @@ body {
 	background-color: #DEDEDE;
 }
 
-h1, h2 {
+h1, h2, h3 {
 	font-family: 'Raleway', sans-serif;
 	text-shadow: 0px 1px 0px white;
 }
 
 #strong-title {
 	color: #007A99;
+}
+
+#task {
+	background-color: white;
+	padding: 20px;
 }
