@@ -20,7 +20,7 @@
 				<div class="form-group">
 					<label for="taskDesc" class="col-sm-2 control-label">Task Description:</label>
 					<div class="col-sm-10">
-						<textarea required type="text" rows=3 class="form-control" id="taskDesc" name="taskDesc" placeholder="Describe the Task..." ></textarea>
+						<textarea required type="text" rows=3 class="form-control" id="taskDesc" name="taskDesc" placeholder="Describe the task..." ></textarea>
 					</div>
 				</div>
 				<div class="form-group">
@@ -37,9 +37,18 @@
 			</fieldset>
 		</form>
 	</div>
-	<h3>Available Tasks</h3>
+	<h3>
+		Available Tasks (
+		<?php 
+			$this->db->where('task_comp', NULL);
+			$this->db->from('tasks');
+			echo $this->db->count_all_results();
+		?>
+		)</h3>
 	<?php
-		$query = $this->db->query('SELECT * FROM tasks');
+		$this->db->where('task_comp', NULL);
+		$this->db->from('tasks');
+		$query = $this->db->get();
 
 		foreach($query->result() as $row)
 		{ 

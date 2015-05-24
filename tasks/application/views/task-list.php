@@ -5,9 +5,19 @@
 			echo anchor('Logout', 'Logout');
 		?>
 	</div>
-	<h3>Welcome <b><?php echo $user; ?></b>, here are the available tasks!</h3>
+	<h2>Welcome <b><?php echo $user; ?></b>!</h2>
+	<hr /> 
+	<h3>Available Tasks ( 
+		<?php 
+			$this->db->where('task_comp', NULL);
+			$this->db->from('tasks');
+			echo $this->db->count_all_results();
+		?> 
+	)</h3>
 	<?php
-		$query = $this->db->query('SELECT * FROM tasks');
+		$this->db->where('task_comp', NULL);
+		$this->db->from('tasks');
+		$query = $this->db->get();
 
 		foreach($query->result() as $row)
 		{ 

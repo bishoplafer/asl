@@ -32,7 +32,7 @@
 		</div>
 		<div class="form-group">
 			<div class="pull-right">
-				<button type="submit" class="btn btn-primary">Edit Task</button>
+				<button type="submit" class="btn btn-primary">Save Changes</button>
 			</div>
 		</div>
 	</fieldset>
