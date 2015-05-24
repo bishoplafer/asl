@@ -96,28 +96,30 @@
 				?>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="completed">
-				<table class="table table-striped table-hover">
-					<thead>
-						<tr>
-							<th>Task Name</th>
-							<th>Task Description</th>
-							<th>Date Completed</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-							$this->db->where('task_comp IS NOT NULL', null, false);
-							$this->db->from('tasks');
-							$query = $this->db->get();
+				<div class="panel">
+					<table class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th>Task Name</th>
+								<th>Task Description</th>
+								<th>Date Completed</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+								$this->db->where('task_comp IS NOT NULL', null, false);
+								$this->db->from('tasks');
+								$query = $this->db->get();
 
-							foreach($query->result() as $row)
-							{ 
-						?>
-						<td><?php echo $row->task_name; ?></td>
-						<td><?php echo $row->task_desc; ?></td>
-						<td><?php echo $row->task_comp; ?></td>
-					</tbody>
-				</table>
+								foreach($query->result() as $row)
+								{ 
+							?>
+							<td><?php echo $row->task_name; ?></td>
+							<td><?php echo $row->task_desc; ?></td>
+							<td><?php echo $row->task_comp; ?></td>
+						</tbody>
+					</table>
+				</div>
 				<?php 
 				}
 				?>
