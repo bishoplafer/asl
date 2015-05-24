@@ -7,13 +7,14 @@
 	</div>
 	<h2>Welcome <b><?php echo $user; ?></b>!</h2>
 	<hr /> 
-	<h3>Available Tasks ( 
+	<h3>
+		Available Tasks ( 
 		<?php 
 			$this->db->where('task_comp', NULL);
 			$this->db->from('tasks');
 			echo $this->db->count_all_results();
-		?> 
-	)</h3>
+		?> )
+	</h3>
 	<?php
 		$this->db->where('task_comp', NULL);
 		$this->db->from('tasks');
