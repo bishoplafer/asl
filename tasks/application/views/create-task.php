@@ -122,7 +122,7 @@
 								<td><?php echo $row->task_name; ?></td>
 								<td><?php echo $row->task_desc; ?></td>
 								<td><?php echo $row->task_comp; ?></td>
-								<td></td>
+								<td><?php echo $row->comp_user_id; ?></td>
 							</tr>
 							<?php 
 								}
