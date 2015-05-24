@@ -6,38 +6,41 @@
 		?>
 	</div>
 	<h2>Welcome <b><?php echo $user; ?></b>!</h2>
-	<a class="btn btn-primary btn-block" data-toggle="collapse" href="#newTaskForm" aria-expanded="false" aria-controls="newTaskForm">Create a New Task</a>
-	<div id="newTaskForm" class="collapse">
-		<form class="form-horizontal" action="<?php echo base_url();?>index.php/Site/new_task" method="POST">
-			<fieldset>
-				<legend>Create a New Task</legend>
-				<div class="form-group">
-					<label for="taskName" class="col-sm-2 control-label">Task Name:</label>
-					<div class="col-sm-10">
-						<input required type="text" class="form-control" id="taskName" name="taskName" placeholder="Name the task..." />
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="taskDesc" class="col-sm-2 control-label">Task Description:</label>
-					<div class="col-sm-10">
-						<textarea required type="text" rows=3 class="form-control" id="taskDesc" name="taskDesc" placeholder="Describe the task..." ></textarea>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="taskDead" class="col-sm-2 control-label">Task Deadline:</label>
-					<div class="col-sm-2">
-						<input required type="datetime" class="form-control" id="datepicker" name="taskDead" placeholder="Deadline" />
-					</div>
-				</div>
-				<div class="form-group">
-					<div class="pull-right">
-						<button type="submit" class="btn btn-primary">Create Task</button>
-					</div>
-				</div>
-			</fieldset>
-		</form>
-	</div>
+	<hr />
+	<a class="btn btn-primary btn-block" data-toggle="collapse" href="#newTaskForm" aria-expanded="false" aria-controls="newTaskForm"><h4>Create a New Task</h4></a>
 	<br />
+	<div id="newTaskForm" class="collapse">
+		<div class="panel">
+			<form class="form-horizontal" action="<?php echo base_url();?>index.php/Site/new_task" method="POST">
+				<div class="panel-heading">
+					<legend>Create a New Task</legend>
+				</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="taskName" class="col-sm-2 control-label">Task Name:</label>
+						<div class="col-sm-10">
+							<input required type="text" class="form-control" id="taskName" name="taskName" placeholder="Name the task..." />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="taskDesc" class="col-sm-2 control-label">Task Description:</label>
+						<div class="col-sm-10">
+							<textarea required type="text" rows=3 class="form-control" id="taskDesc" name="taskDesc" placeholder="Describe the task..." ></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="taskDead" class="col-sm-2 control-label">Task Deadline:</label>
+						<div class="col-sm-2">
+							<input required type="datetime" class="form-control" id="datepicker" name="taskDead" placeholder="Deadline" />
+						</div>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary center-block">Create Task</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 	<div role="tabpanel">
 		<ul class="nav nav-pills nav-justified" role="tablist">
 			<li role="presentation" class="active">
@@ -67,7 +70,7 @@
 		</ul>
 		<br />
 		<div class="tab-content">
-			<div role="tabpanel" class="tab-pane active" id="available">
+			<div role="tabpanel" class="tab-pane fade in active" id="available">
 				<?php
 					$this->db->where('task_comp', NULL);
 					$this->db->from('tasks');
@@ -95,8 +98,8 @@
 				}
 				?>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="completed">
-				<div class="panel">
+			<div role="tabpanel" class="tab-pane fade" id="completed">
+				<div class="panel" id="task">
 					<table class="table table-striped table-hover">
 						<thead>
 							<tr>
