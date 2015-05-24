@@ -50,7 +50,12 @@
 			<div class="panel-body">
 				<p><b>Description:</b><br /><?php echo $row->task_desc; ?></p>
 				<p><b>Deadline:</b><br /><?php echo $row->task_dead; ?></p>
-				<a href="<?php echo base_url();?>index.php/Site/edit_task/<?php echo $row->task_id; ?>" class="btn btn-block btn-warning">Edit Task</a>
+				<div class="col-sm-6">
+					<a href="<?php echo base_url();?>index.php/Site/edit_task/<?php echo $row->task_id; ?>" class="btn btn-block btn-warning">Edit Task</a>
+				</div>
+				<div class="col-sm-6">
+					<a href="<?php echo base_url();?>index.php/Site/remove_task/<?php echo $row->task_id; ?>" class="btn btn-block btn-danger">Delete Task</a>
+				</div>
 			</div>
 		</div>
 	</div>

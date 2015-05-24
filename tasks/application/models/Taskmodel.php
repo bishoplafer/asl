@@ -43,4 +43,17 @@ class Taskmodel extends CI_Model {
 		$data['main_content'] = 'create-task';
 		$this->load->view('includes/template', $data);
 	}
+
+	public function delete_task($taskId)
+	{
+		$task_data = array(
+			'task_id' => $taskId
+		);
+		$this->db->delete('tasks', $task_data);
+
+		$user = $this->session->userdata('username');
+		$data['user'] = $user;
+		$data['main_content'] = 'create-task';
+		$this->load->view('includes/template', $data);
+	}
 }

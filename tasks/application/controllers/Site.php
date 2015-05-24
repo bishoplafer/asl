@@ -54,7 +54,14 @@ class Site extends CI_Controller {
 	{
 		$this->load->model('Taskmodel');
 		$taskId = $this->uri->segment(3);
-		$query = $this->Taskmodel->update_task($taskId);
+		$this->Taskmodel->update_task($taskId);
+	}
+
+	public function remove_task()
+	{
+		$this->load->model('Taskmodel');
+		$taskId = $this->uri->segment(3);
+		$this->Taskmodel->delete_task($taskId);
 	}
 
 }
