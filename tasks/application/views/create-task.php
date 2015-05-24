@@ -40,7 +40,7 @@
 				</div>
 			</form>
 		</div>
-	</div>
+	</div> <!-- end #newTaskForm -->
 	<div role="tabpanel">
 		<ul class="nav nav-pills nav-justified" role="tablist">
 			<li role="presentation" class="active">
@@ -67,7 +67,7 @@
 					</h3>
 				</a>
 			</li>
-		</ul>
+		</ul> <!-- end .nav -->
 		<br />
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane fade in active" id="available">
@@ -97,7 +97,7 @@
 				<?php 
 				}
 				?>
-			</div>
+			</div> <!-- end .tab-pane -->
 			<div role="tabpanel" class="tab-pane fade" id="completed">
 				<div class="panel" id="task">
 					<table class="table table-striped table-hover">
@@ -126,6 +126,6 @@
 				<?php 
 				}
 				?>
-			</div>
-		</div>
-	</div>
+			</div> <!-- end .tab-pane --> 
+		</div> <!-- end .tab-content -->
+	</div> <!-- end .tabpanel -->
