@@ -21,7 +21,7 @@
 		<div class="form-group">
 			<label for="taskDesc" class="col-sm-2 control-label">Task Description:</label>
 			<div class="col-sm-10">
-				<textarea required type="text" rows=3 class="form-control" id="taskDesc" name="taskDesc" value="<?php echo $task['task_desc']; ?>" placeholder="<?php echo $task['task_name']; ?>"></textarea>
+				<textarea required type="text" rows=3 class="form-control" id="taskDesc" name="taskDesc" placeholder="<?php echo $task['task_desc']; ?>"><?php echo $task['task_desc']; ?></textarea>
 			</div>
 		</div>
 		<div class="form-group">

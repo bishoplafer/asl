@@ -13,11 +13,12 @@
 		{ 
 	?>
 	<div class="col-sm-6">
-		<div class="panel panel-default">
+		<div id="task" class="panel panel-default">
 			<div class="panel-heading"><h4><?php echo $row->task_name; ?></h4></div>
 			<div class="panel-body">
 				<p><b>Description:</b><br /><?php echo $row->task_desc; ?></p>
 				<p><b>Deadline:</b><br /><?php echo $row->task_dead; ?></p>
+				<a href="" class="btn btn-primary btn-block">Complete Task</a>
 			</div>
 		</div>
 	</div>
