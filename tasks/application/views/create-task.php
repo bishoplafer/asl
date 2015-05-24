@@ -37,37 +37,93 @@
 			</fieldset>
 		</form>
 	</div>
-	<h3>
-		Available Tasks (
-		<?php 
-			$this->db->where('task_comp', NULL);
-			$this->db->from('tasks');
-			echo $this->db->count_all_results();
-		?>
-		)</h3>
-	<?php
-		$this->db->where('task_comp', NULL);
-		$this->db->from('tasks');
-		$query = $this->db->get();
+	<br />
+	<div role="tabpanel">
+		<ul class="nav nav-pills nav-justified" role="tablist">
+			<li role="presentation" class="active">
+				<a href="#available" aria-controls="available" role="tab" data-toggle="tab">
+					<h3>
+						Available Tasks (
+						<?php 
+							$this->db->where('task_comp', NULL);
+							$this->db->from('tasks');
+							echo $this->db->count_all_results();
+						?> )
+					</h3>
+				</a>
+			</li>
+			<li role="presentation" class="">
+				<a href="#completed" aria-controls="completed" role="tab" data-toggle="tab">
+					<h3>
+						Completed Tasks (
+						<?php
+							$this->db->where('task_comp IS NOT NULL', null, false);
+							$this->db->from('tasks');
+							echo $this->db->count_all_results();
+						?> )
+					</h3>
+				</a>
+			</li>
+		</ul>
+		<br />
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="available">
+				<?php
+					$this->db->where('task_comp', NULL);
+					$this->db->from('tasks');
+					$query = $this->db->get();
 
-		foreach($query->result() as $row)
-		{ 
-	?>
-	<div class="col-sm-6">
-		<div id="task" class="panel panel-default">
-			<div class="panel-heading"><h4><?php echo $row->task_name; ?></h4></div>
-			<div class="panel-body">
-				<p><b>Description:</b><br /><?php echo $row->task_desc; ?></p>
-				<p><b>Deadline:</b><br /><?php echo $row->task_dead; ?></p>
+					foreach($query->result() as $row)
+					{ 
+				?>
 				<div class="col-sm-6">
-					<a href="<?php echo base_url();?>index.php/Site/edit_task/<?php echo $row->task_id; ?>" class="btn btn-block btn-warning">Edit Task</a>
+					<div id="task" class="panel panel-default">
+						<div class="panel-heading"><h4><?php echo $row->task_name; ?></h4></div>
+						<div class="panel-body">
+							<p><b>Description:</b><br /><?php echo $row->task_desc; ?></p>
+							<p><b>Deadline:</b><br /><?php echo $row->task_dead; ?></p>
+							<div class="col-sm-6">
+								<a href="<?php echo base_url();?>index.php/Site/edit_task/<?php echo $row->task_id; ?>" class="btn btn-block btn-warning">Edit Task</a>
+							</div>
+							<div class="col-sm-6">
+								<a href="<?php echo base_url();?>index.php/Site/remove_task/<?php echo $row->task_id; ?>" class="btn btn-block btn-danger">Delete Task</a>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="col-sm-6">
-					<a href="<?php echo base_url();?>index.php/Site/remove_task/<?php echo $row->task_id; ?>" class="btn btn-block btn-danger">Delete Task</a>
-				</div>
+				<?php 
+				}
+				?>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="completed">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Task Name</th>
+							<th>Task Description</th>
+							<th>Date Completed</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+							$this->db->where('task_comp IS NOT NULL', null, false);
+							$this->db->from('tasks');
+							$query = $this->db->get();
+
+							foreach($query->result() as $row)
+							{ 
+						?>
+						<td><?php echo $row->task_name; ?></td>
+						<td><?php echo $row->task_desc; ?></td>
+						<td><?php echo $row->task_comp; ?></td>
+					</tbody>
+				</table>
+				<?php 
+				}
+				?>
 			</div>
 		</div>
-	</div>
-	<?php 
-	}
-	?>
+
+
+
+
