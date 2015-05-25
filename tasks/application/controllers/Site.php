@@ -41,7 +41,6 @@ class Site extends CI_Controller {
 	{
 		$this->load->model('Taskmodel');
 		$query = $this->Taskmodel->create_task();
-
 	}
 
 	public function edit_task()
