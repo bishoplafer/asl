@@ -137,8 +137,7 @@
 										$this->db->from('users');
 										$results = $this->db->get();
 										$created_by = $results->result_array();
-										echo $created_by[0]['username'];
-										 
+										echo $created_by[0]['username']; 
 									?>
 								</td>
 							</tr>

@@ -11,7 +11,7 @@
 	</div>
 	<form class="form-horizontal" action="<?php echo base_url();?>index.php/Site/comp_task/<?php echo $task['task_id']; ?>" method="POST">
 		<fieldset>
-			<legend>Edit Task</legend>
+			<legend>Complete Task: <?php echo $task['task_name']; ?></legend>
 			<div class="form-group">
 				<label for="message" class="col-sm-2 control-label">Task Description:</label>
 				<div class="col-sm-10">
