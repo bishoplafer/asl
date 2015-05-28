@@ -30,7 +30,7 @@
 			<div class="panel-body">
 				<p><b>Description:</b><br /><?php echo $row->task_desc; ?></p>
 				<p><b>Deadline:</b><br /><?php echo $row->task_dead; ?></p>
-				<a href="" class="btn btn-primary btn-block">Complete Task</a>
+				<a href="<?php echo base_url();?>index.php/Site/complete_task/<?php echo $row->task_id;?>" class="btn btn-primary btn-block">Complete Task</a>
 			</div>
 		</div>
 	</div>

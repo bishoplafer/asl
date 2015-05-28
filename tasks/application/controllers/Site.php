@@ -63,4 +63,17 @@ class Site extends CI_Controller {
 		$this->Taskmodel->delete_task($taskId);
 	}
 
+	public function complete_task()
+	{
+		$data['main_content'] = 'complete-task';
+		$this->load->view('includes/template', $data);
+	}
+
+	public function comp_task()
+	{
+		$this->load->model('Taskmodel');
+		$taskId = $this->uri->segment(3);
+		$this->Taskmodel->completed_by($taskId);
+	}
+
 }
