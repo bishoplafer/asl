@@ -75,6 +75,7 @@
 					$this->db->where('task_comp', NULL);
 					$this->db->from('tasks');
 					$query = $this->db->get();
+					$counter=1;
 
 					foreach($query->result() as $row)
 					{ 
@@ -94,7 +95,13 @@
 						</div>
 					</div>
 				</div>
-				<?php 
+				<?php
+					if($counter % 2 == 0){
+						echo '<div class="clearfix"></div>';
+						$counter++;
+					}else{
+						$counter++;
+					}
 				}
 				?>
 			</div> <!-- end .tab-pane -->
@@ -122,7 +129,16 @@
 								<td><?php echo $row->task_name; ?></td>
 								<td><?php echo $row->task_desc; ?></td>
 								<td><?php echo $row->task_comp; ?></td>
-								<td><?php echo $row->comp_user_id; ?></td>
+								<td>
+									<?php
+										$this->db->where('id', $row->comp_user_id);
+										$this->db->from('users');
+										$results = $this->db->get();
+										$created_by = $results->result_array();
+										echo $created_by[0]['username'];
+										 
+									?>
+								</td>
 							</tr>
 							<?php 
 								}

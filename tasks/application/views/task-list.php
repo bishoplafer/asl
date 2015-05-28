@@ -19,6 +19,7 @@
 		$this->db->where('task_comp', NULL);
 		$this->db->from('tasks');
 		$query = $this->db->get();
+		$counter = 1;
 
 		foreach($query->result() as $row)
 		{ 
@@ -33,6 +34,12 @@
 			</div>
 		</div>
 	</div>
-	<?php 
+	<?php
+		if($counter % 2 == 0){
+			echo '<div class="clearfix"></div>';
+			$counter++;
+		}else{
+			$counter++;
+		}
 	}
 	?>
